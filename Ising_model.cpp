@@ -33,14 +33,14 @@ double m(double k);
 
 int main() {
 	bitToState();
-	showState();
+	//showState();
 	addState();
 	int idx = 0;
 	while (idx < N) {
 		if (bitState.at(idx) < S-1) {
 			bitState.at(idx) += 1;
 			bitToState();
-			showState();
+			//showState();
 			addState();
 			if (idx > 0) {
 				idx = 0;
@@ -56,12 +56,12 @@ int main() {
 	calMag();
 
 	ofstream file("file.csv");
-	for (int d = 0; d < 3000; d++) {
-		double k = d / 1000.0;
+	for (int d = 0; d < 300; d++) {
+		double k = d / 100.0;
 		double U = u(k);
 		double C = c(k);
 		double M = m(k);
-		file << k << " , " << U << " , " << C << " , " << M << endl;
+		file << k << ", " << U << ", " << C << ", " << M << "," << endl;
 	}
 	file.close();
 
@@ -77,6 +77,7 @@ void bitToState() {
 }
 
 
+/*
 void showState() {
 	for (int i = 0; i < N; i++) {
 		int j = N - 1 - i;
@@ -90,6 +91,7 @@ void showState() {
 	}
 	return;
 }
+*/
 
 
 void addState() {
